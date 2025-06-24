@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { ClerkProvider } from "@clerk/nextjs";
+import { TanstackQueryProvider } from "@/components/providers/tanstack-query-provider";
+import { TRPCReactProvider } from "@/utils/client";
+import { NavigationMenuDemo } from "@/components/Navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,12 +27,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
-    </html>
+    <ClerkProvider>
+      <TanstackQueryProvider>
+        <TRPCReactProvider>
+          <html lang="en">
+            <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+              <div className="min-h-screen flex flex-col">
+                <NavigationMenuDemo />
+                <main className="flex-1">
+                  {children}
+                </main>
+              </div>
+            </body>
+          </html>
+        </TRPCReactProvider>
+      </TanstackQueryProvider>
+    </ClerkProvider>
   );
 }
