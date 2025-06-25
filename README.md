@@ -20,6 +20,7 @@ This is a comprehensive event management platform built for our college fest, de
 - 💾 Uses NeonDB with Drizzle ORM for scalable and type-safe database access.
 - 🛍️ User-friendly interface for browsing and buying event merchandise.
 
+
 ## 🛠️ Getting Started
 
 ### 1. Clone the repository

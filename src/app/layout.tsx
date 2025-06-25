@@ -4,7 +4,7 @@ import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { TanstackQueryProvider } from "@/components/providers/tanstack-query-provider";
 import { TRPCReactProvider } from "@/utils/client";
-import { NavigationMenuDemo } from "@/components/Navbar";
+import SimpleNavbar from "@/components/Navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,7 +33,7 @@ export default function RootLayout({
           <html lang="en">
             <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
               <div className="min-h-screen flex flex-col">
-                <NavigationMenuDemo />
+                <SimpleNavbar />
                 <main className="flex-1">
                   {children}
                 </main>
